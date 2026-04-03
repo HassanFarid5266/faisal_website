@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us – Faisal Abbas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue:       #1D4ED8;
+  --blue-dark:  #1E3A8A;
+  --blue-light: #EFF6FF;
+  --blue-mid:   #BFDBFE;
+  --ink:        #0F172A;
+  --body:       #334155;
+  --muted:      #64748B;
+  --border:     #E2E8F0;
+  --bg:         #F8FAFC;
+  --white:      #FFFFFF;
+  --gold:       #F59E0B;
+  --green:      #22C55E;
+  --nav-h:      80px;
+  --max:        1440px;
+  --gutter:     clamp(24px, 5vw, 120px);
+  --radius:     14px;
+  --radius-lg:  24px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; height: var(--nav-h); background: rgba(255,255,255,0.90); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow .3s; }
+.nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
+.nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo-badge { width: 42px; height: 42px; border-radius: 12px; background: var(--blue); display: flex; align-items: center; justify-content: center; }
+.logo-badge svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.logo-name { font-family: 'Unbounded', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--ink); letter-spacing: -.3px; }
+.logo-name span { color: var(--blue); }
+.nav-links { display: flex; align-items: center; gap: 2px; list-style: none; flex: 1; justify-content: center; }
+.nav-links a { font-size: .875rem; font-weight: 500; color: var(--muted); padding: 9px 18px; border-radius: 10px; transition: color .2s, background .2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--blue-light); }
+.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.btn-nav-outline { background: transparent; color: var(--blue); padding: 10px 24px; border-radius: 10px; font-size: .875rem; font-weight: 600; border: 1.5px solid var(--blue); cursor: pointer; transition: background .2s; white-space: nowrap; }
+.btn-nav-outline:hover { background: var(--blue-light); }
+.btn-nav { background: var(--blue); color: #fff; padding: 10px 24px; border-radius: 10px; font-size: .875rem; font-weight: 600; border: none; cursor: pointer; transition: background .2s, transform .2s; box-shadow: 0 4px 14px rgba(29,78,216,.3); white-space: nowrap; }
+.btn-nav:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: .28s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.mob-nav { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); z-index: 9998; padding: 20px var(--gutter) 28px; flex-direction: column; gap: 4px; box-shadow: 0 8px 32px rgba(0,0,0,.1); }
+.mob-nav.open { display: flex; }
+.mob-nav a { font-size: 1rem; font-weight: 500; color: var(--body); padding: 13px 16px; border-radius: 10px; transition: background .15s, color .15s; }
+.mob-nav a:hover { background: var(--blue-light); color: var(--blue); }
+.mob-nav .mob-cta { margin-top: 12px; background: var(--blue); color: #fff !important; text-align: center; font-weight: 600; border-radius: 12px; padding: 14px !important; }
+
+/* PAGE HERO */
+.page-hero { padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; background: var(--blue-light); text-align: center; }
+.page-hero-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 16px; }
+.page-hero h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; color: var(--ink); letter-spacing: -1px; line-height: 1.1; }
+.page-hero p { font-size: clamp(.95rem, 1.1vw, 1.1rem); color: var(--muted); max-width: 560px; margin: 20px auto 0; line-height: 1.8; }
+
+/* CONTACT LAYOUT */
+.contact-section { padding: 100px 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+
+/* INFO SIDE */
+.contact-info-title { font-family: 'Unbounded', sans-serif; font-size: 1.3rem; font-weight: 900; color: var(--ink); margin-bottom: 12px; }
+.contact-info-desc { font-size: .9rem; color: var(--muted); line-height: 1.8; margin-bottom: 40px; }
+.contact-cards { display: flex; flex-direction: column; gap: 16px; }
+.contact-card { display: flex; align-items: flex-start; gap: 18px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; transition: border-color .2s; }
+.contact-card:hover { border-color: var(--blue); }
+.contact-card-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.contact-card h4 { font-size: .88rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.contact-card p, .contact-card a { font-size: .85rem; color: var(--muted); line-height: 1.6; transition: color .15s; }
+.contact-card a:hover { color: var(--blue); }
+
+/* FORM */
+.contact-form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px 44px; box-shadow: 0 8px 40px rgba(0,0,0,.06); }
+.form-title { font-family: 'Unbounded', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+.form-subtitle { font-size: .875rem; color: var(--muted); margin-bottom: 36px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.form-group label { font-size: .82rem; font-weight: 600; color: var(--body); }
+.form-group input,
+.form-group select,
+.form-group textarea { width: 100%; padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 10px; font-family: 'Outfit', sans-serif; font-size: .9rem; color: var(--ink); background: var(--white); transition: border-color .2s, box-shadow .2s; outline: none; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,78,216,.1); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select { cursor: pointer; }
+.btn-submit { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--blue); color: #fff; padding: 16px 32px; border-radius: var(--radius); font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; border: none; cursor: pointer; box-shadow: 0 6px 20px rgba(29,78,216,.35); transition: background .2s, transform .2s, box-shadow .2s; margin-top: 8px; }
+.btn-submit:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(29,78,216,.45); }
+.btn-submit svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; }
+
+/* SUCCESS MESSAGE */
+.form-success { display: none; text-align: center; padding: 40px; }
+.form-success.show { display: block; }
+.success-icon { font-size: 3rem; margin-bottom: 16px; }
+.success-title { font-family: 'Unbounded', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--ink); margin-bottom: 10px; }
+.success-msg { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
+/* FOOTER */
+.footer { background: #020617; padding: 88px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.2fr; gap: 64px; margin-bottom: 64px; }
+.footer-logo { font-family: 'Unbounded', sans-serif; font-size: 1.2rem; font-weight: 900; color: var(--white); margin-bottom: 18px; }
+.footer-logo em { color: #60A5FA; font-style: normal; }
+.footer-brand p { font-size: .875rem; color: #475569; line-height: 1.8; max-width: 280px; }
+.footer-socials { display: flex; gap: 10px; margin-top: 24px; }
+.f-soc { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; color: #475569; font-size: .78rem; font-weight: 700; transition: background .2s, color .2s, border-color .2s; }
+.f-soc:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
+.f-col h5 { font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #334155; margin-bottom: 20px; }
+.f-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.f-col ul li a { font-size: .875rem; color: #475569; transition: color .15s; }
+.f-col ul li a:hover { color: var(--white); }
+.footer-contact-item { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: #475569; margin-bottom: 12px; }
+.footer-contact-item svg { width: 16px; height: 16px; stroke: #2563EB; fill: none; stroke-width: 1.8; flex-shrink: 0; }
+.footer-contact-item a { color: #475569; transition: color .15s; }
+.footer-contact-item a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: .82rem; color: #1E293B; }
+.footer-bottom a { color: #475569; transition: color .15s; }
+.footer-bottom a:hover { color: var(--white); }
+
+/* SCROLL REVEAL */
+.r { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
+.r.v { opacity: 1; transform: none; }
+.r.d1 { transition-delay: .1s; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  :root { --nav-h: 68px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  .contact-section { padding: 64px 0; }
+  .contact-form-wrap { padding: 32px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 480px) {
+  :root { --nav-h: 60px; --gutter: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav" id="navbar">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-badge">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <span class="logo-name">Faisal <span>Abbas</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#janitorial">Janitorial</a></li>
+      <li><a href="index.html#office">Management</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="login.html" class="btn-nav-outline">Login</a>
+      <a href="signup.html" class="btn-nav">Sign Up</a>
+    </div>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#janitorial">Janitorial</a>
+  <a href="index.html#office">Management</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="login.html">Login</a>
+  <a href="signup.html" class="mob-cta">Sign Up →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="page-hero-eyebrow">Get in Touch</span>
+    <h1>Contact Us</h1>
+    <p>Have a question or ready to get a free quote? Our team is here to help Monday to Saturday, 9am–7pm.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <!-- LEFT: Info -->
+      <div class="r">
+        <h2 class="contact-info-title">Let's Talk</h2>
+        <p class="contact-info-desc">Reach out through any channel below or fill in the form and we'll get back to you within 24 hours.</p>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-card-icon">📍</div>
+            <div>
+              <h4>Our Office</h4>
+              <p>Lahore, Punjab, Pakistan</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+92XXXXXXXXXX">+92 XXX XXXXXXX</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:info@faisalabbas.pk">info@faisalabbas.pk</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">🕐</div>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-form-wrap r d1">
+        <div id="contactForm">
+          <div class="form-title">Send Us a Message</div>
+          <div class="form-subtitle">We'll reply within 24 hours. All fields marked * are required.</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" placeholder="Ahmad" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" placeholder="Khan" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="ahmad@company.pk" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+92 XXX XXXXXXX">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Required *</label>
+            <select id="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option value="cleaning">Cleaning Services</option>
+              <option value="janitorial">Janitorial Services</option>
+              <option value="security">Security Services</option>
+              <option value="civil">Civil Works</option>
+              <option value="parking">Parking Management</option>
+              <option value="landscaping">Landscaping</option>
+              <option value="office-mgmt">Office Management</option>
+              <option value="other">Other / Multiple Services</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company / Property Name</label>
+            <input type="text" id="company" placeholder="Your company or property name">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" placeholder="Tell us about your requirements, location and preferred schedule..." required></textarea>
+          </div>
+
+          <button type="button" class="btn-submit" onclick="submitForm()">
+            Send Message
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">✅</div>
+          <div class="success-title">Message Sent!</div>
+          <p class="success-msg">Thank you for reaching out. Our team will review your enquiry and get back to you within 24 hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Faisal <em>Abbas</em></div>
+        <p>Pakistan's leading office and facility management company delivering excellence across residential, commercial and industrial sectors since 2010.</p>
+        <div class="footer-socials">
+          <a href="#" class="f-soc">fb</a>
+          <a href="#" class="f-soc">ig</a>
+          <a href="#" class="f-soc">yt</a>
+          <a href="#" class="f-soc">li</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">Cleaning Services</a></li>
+          <li><a href="index.html#janitorial">Janitorial</a></li>
+          <li><a href="index.html#services">Parking Management</a></li>
+          <li><a href="index.html#services">Civil Works</a></li>
+          <li><a href="index.html#services">Security</a></li>
+          <li><a href="index.html#services">Landscaping</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Lahore, Pakistan</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          <a href="tel:+92XXXXXXXXXX">+92 XXX XXXXXXX</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@faisalabbas.pk">info@faisalabbas.pk</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Mon–Sat, 9am–7pm</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Faisal Abbas. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms & Conditions</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mobNav');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mob.classList.remove('open'); ham.classList.remove('open'); }));
+const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); }); }, { threshold: 0.1 });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+function submitForm() {
+  const required = ['firstName', 'lastName', 'email', 'service', 'message'];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.style.borderColor = '#EF4444'; valid = false; }
+    else { el.style.borderColor = ''; }
+  });
+  if (!valid) return;
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+}
+</script>
+</body>
+</html>
