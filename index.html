@@ -1,1283 +1,537 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Faisal Abbas – Pakistan's #1 Office Working Solution</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ═══════════════════════════════════════════
-   RESET & BASE
-═══════════════════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --blue:       #1D4ED8;
-  --blue-dark:  #1E3A8A;
-  --blue-light: #EFF6FF;
-  --blue-mid:   #BFDBFE;
-  --ink:        #0F172A;
-  --body:       #334155;
-  --muted:      #64748B;
-  --border:     #E2E8F0;
-  --bg:         #F8FAFC;
-  --white:      #FFFFFF;
-  --gold:       #F59E0B;
-  --green:      #22C55E;
-
-  --nav-h:      80px;
-  --max:        1440px;
-  --gutter:     clamp(24px, 5vw, 120px);
-  --radius:     14px;
-  --radius-lg:  24px;
-  --radius-xl:  36px;
-}
-
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Outfit', sans-serif;
-  background: var(--white);
-  color: var(--ink);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-img { display: block; max-width: 100%; }
-a { text-decoration: none; }
-
-/* ═══════════════════════════════════════════
-   LAYOUT UTILITY
-═══════════════════════════════════════════ */
-.wrap {
-  width: 100%;
-  max-width: var(--max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
-
-/* ═══════════════════════════════════════════
-   NAVBAR
-═══════════════════════════════════════════ */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 9999;
-  height: var(--nav-h);
-  background: rgba(255,255,255,0.90);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  transition: box-shadow .3s;
-}
-.nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
-.nav-inner {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-.logo-badge {
-  width: 42px; height: 42px;
-  border-radius: 12px;
-  background: var(--blue);
-  display: flex; align-items: center; justify-content: center;
-}
-.logo-badge svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.logo-name {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 1.1rem; font-weight: 800;
-  color: var(--ink); letter-spacing: -.3px;
-}
-.logo-name span { color: var(--blue); }
-
-.nav-links {
-  display: flex; align-items: center; gap: 2px;
-  list-style: none;
-  flex: 1; justify-content: center;
-}
-.nav-links a {
-  font-size: .875rem; font-weight: 500;
-  color: var(--muted); padding: 9px 18px;
-  border-radius: 10px;
-  transition: color .2s, background .2s;
-}
-.nav-links a:hover { color: var(--blue); background: var(--blue-light); }
-
-.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.nav-tel {
-  font-size: .875rem; font-weight: 500;
-  color: var(--body); display: flex; align-items: center; gap: 6px;
-}
-.nav-tel svg { width: 15px; height: 15px; stroke: var(--blue); fill: none; stroke-width: 2; }
-.btn-nav {
-  background: var(--blue); color: #fff;
-  padding: 10px 24px; border-radius: 10px;
-  font-size: .875rem; font-weight: 600;
-  border: none; cursor: pointer;
-  transition: background .2s, transform .2s, box-shadow .2s;
-  box-shadow: 0 4px 14px rgba(29,78,216,.3);
-  white-space: nowrap;
-}
-.btn-nav:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(29,78,216,.4); }
-
-.hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer; padding: 6px;
-}
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: .28s; }
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-/* Mobile menu */
-.mob-nav {
-  display: none;
-  position: fixed;
-  top: var(--nav-h); left: 0; right: 0;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  z-index: 9998;
-  padding: 20px var(--gutter) 28px;
-  flex-direction: column; gap: 4px;
-  box-shadow: 0 8px 32px rgba(0,0,0,.1);
-}
-.mob-nav.open { display: flex; }
-.mob-nav a {
-  font-size: 1rem; font-weight: 500; color: var(--body);
-  padding: 13px 16px; border-radius: 10px;
-  transition: background .15s, color .15s;
-}
-.mob-nav a:hover { background: var(--blue-light); color: var(--blue); }
-.mob-nav .mob-cta {
-  margin-top: 12px; background: var(--blue); color: #fff !important;
-  text-align: center; font-weight: 600; border-radius: 12px; padding: 14px !important;
-}
-
-/* ═══════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════ */
-.hero {
-  padding-top: var(--nav-h);
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  background: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Big decorative shape */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 52%;
-  height: 100%;
-  background: var(--blue-light);
-  clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
-  z-index: 0;
-}
-
-.hero-wrap {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 80px;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  position: relative;
-  z-index: 1;
-}
-
-/* Left */
-.hero-left {}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  padding: 7px 18px 7px 7px;
-  margin-bottom: 32px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
-}
-.eyebrow-dot {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--green);
-  display: flex; align-items: center; justify-content: center;
-}
-.eyebrow-dot svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.hero-eyebrow span { font-size: .8rem; font-weight: 600; color: var(--body); letter-spacing: .2px; }
-
-.hero h1 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: clamp(2.6rem, 3.8vw, 5.2rem);
-  font-weight: 900;
-  line-height: 1.06;
-  letter-spacing: -1.5px;
-  color: var(--ink);
-}
-.hero h1 .accent { color: var(--blue); }
-.hero h1 .line-block { display: block; }
-
-.hero-sub {
-  margin-top: 28px;
-  font-size: clamp(.95rem, 1.1vw, 1.15rem);
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 480px;
-  font-weight: 400;
-}
-
-.hero-sectors {
-  display: flex; gap: 10px; flex-wrap: wrap;
-  margin-top: 24px;
-}
-.sector {
-  font-size: .8rem; font-weight: 600; color: var(--body);
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 8px; padding: 6px 14px;
-}
-
-.hero-actions {
-  display: flex; gap: 16px; flex-wrap: wrap;
-  margin-top: 40px;
-}
-
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--blue); color: #fff;
-  padding: 16px 36px; border-radius: var(--radius);
-  font-size: 1rem; font-weight: 600;
-  border: none; cursor: pointer;
-  box-shadow: 0 6px 20px rgba(29,78,216,.35);
-  transition: transform .22s, box-shadow .22s, background .22s;
-}
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(29,78,216,.45); background: var(--blue-dark); }
-.btn-primary svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; }
-
-.btn-secondary {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--white); color: var(--ink);
-  padding: 16px 36px; border-radius: var(--radius);
-  font-size: 1rem; font-weight: 600;
-  border: 1.5px solid var(--border);
-  transition: border-color .2s, transform .2s;
-}
-.btn-secondary:hover { border-color: #94a3b8; transform: translateY(-2px); }
-
-.hero-stats {
-  display: flex; gap: 0;
-  margin-top: 56px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0,0,0,.06);
-  width: fit-content;
-}
-.hs {
-  padding: 22px 32px;
-  border-right: 1px solid var(--border);
-  text-align: center;
-}
-.hs:last-child { border-right: none; }
-.hs-num {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 1.9rem; font-weight: 900;
-  color: var(--ink); line-height: 1;
-}
-.hs-num em { color: var(--blue); font-style: normal; }
-.hs-lbl { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-top: 6px; }
-
-/* Right panel */
-.hero-right {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.hero-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 28px 32px;
-  box-shadow: 0 8px 40px rgba(0,0,0,.07);
-}
-.hero-card-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: .85rem; font-weight: 800;
-  color: var(--ink); margin-bottom: 20px;
-  letter-spacing: -.2px;
-}
-
-.svc-row {
-  display: flex; align-items: center; gap: 16px;
-  padding: 13px 14px; border-radius: 12px;
-  transition: background .2s; cursor: default;
-  margin-bottom: 4px;
-}
-.svc-row:last-child { margin-bottom: 0; }
-.svc-row:hover { background: var(--bg); }
-.svc-ico {
-  width: 48px; height: 48px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem; flex-shrink: 0;
-}
-.ico-blue  { background: #DBEAFE; }
-.ico-green { background: #DCFCE7; }
-.ico-amber { background: #FEF3C7; }
-.ico-pink  { background: #FCE7F3; }
-.ico-teal  { background: #CCFBF1; }
-.ico-red   { background: #FEE2E2; }
-.svc-info h4 { font-size: .9rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
-.svc-info p  { font-size: .78rem; color: var(--muted); }
-
-.hero-trust {
-  background: var(--blue);
-  border-radius: var(--radius-lg);
-  padding: 22px 28px;
-  display: flex; align-items: center; gap: 16px;
-}
-.trust-icon {
-  width: 48px; height: 48px; border-radius: 12px;
-  background: rgba(255,255,255,.15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; flex-shrink: 0;
-}
-.trust-text strong { font-size: 1rem; font-weight: 700; color: #fff; display: block; margin-bottom: 3px; }
-.trust-text span { font-size: .82rem; color: rgba(255,255,255,.75); }
-
-/* ═══════════════════════════════════════════
-   STATS BANNER
-═══════════════════════════════════════════ */
-.stats-band {
-  background: var(--blue);
-  padding: 52px 0;
-}
-.stats-band-inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,.12);
-  border-radius: 20px;
-  overflow: hidden;
-}
-.sb-item {
-  background: var(--blue);
-  padding: 28px 20px;
-  text-align: center;
-  transition: background .2s;
-}
-.sb-item:hover { background: var(--blue-dark); }
-.sb-val {
-  font-family: 'Unbounded', sans-serif;
-  font-size: clamp(2rem, 2.8vw, 2.8rem);
-  font-weight: 900; color: #fff; line-height: 1;
-}
-.sb-val em { color: rgba(255,255,255,.6); font-style: normal; font-size: .6em; }
-.sb-lbl { font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
-
-/* ═══════════════════════════════════════════
-   COMMON SECTION STYLES
-═══════════════════════════════════════════ */
-.section { padding: 110px 0; }
-.section-alt { background: var(--bg); }
-.section-white { background: var(--white); }
-
-.sec-eyebrow {
-  font-size: .75rem; font-weight: 700;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--blue); display: block; margin-bottom: 14px;
-}
-.sec-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
-  font-weight: 900; letter-spacing: -.5px;
-  line-height: 1.1; color: var(--ink);
-}
-.sec-desc {
-  font-size: clamp(.9rem, 1vw, 1.05rem);
-  color: var(--muted); line-height: 1.8;
-  max-width: 520px; margin-top: 14px;
-}
-
-.sec-head-row {
-  display: flex; justify-content: space-between;
-  align-items: flex-end; gap: 40px;
-  margin-bottom: 64px; flex-wrap: wrap;
-}
-.sec-head-center { text-align: center; margin-bottom: 64px; }
-.sec-head-center .sec-desc { margin-left: auto; margin-right: auto; }
-
-/* ═══════════════════════════════════════════
-   SERVICES
-═══════════════════════════════════════════ */
-.srv-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.srv-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  position: relative; cursor: default;
-  transition: transform .3s, box-shadow .3s, border-color .3s;
-}
-.srv-card::after {
-  content: '';
-  position: absolute; inset: 0;
-  border-radius: var(--radius-lg);
-  border: 2px solid var(--blue);
-  opacity: 0; transition: opacity .3s;
-}
-.srv-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,.1); }
-.srv-card:hover::after { opacity: 1; }
-
-.srv-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
-.srv-icon {
-  width: 60px; height: 60px; border-radius: 16px;
-  background: var(--blue-light);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem;
-}
-.srv-arrow {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: var(--bg); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-size: 1rem;
-  transition: background .2s, color .2s, border-color .2s;
-}
-.srv-card:hover .srv-arrow { background: var(--blue); color: #fff; border-color: var(--blue); }
-.srv-card h3 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 1rem; font-weight: 800;
-  color: var(--ink); margin-bottom: 12px; letter-spacing: -.2px;
-}
-.srv-card p { font-size: .9rem; color: var(--muted); line-height: 1.75; }
-.srv-tag {
-  display: inline-block; margin-top: 20px;
-  font-size: .72rem; font-weight: 700;
-  color: var(--blue); background: var(--blue-light);
-  border-radius: 6px; padding: 4px 12px;
-  letter-spacing: .3px;
-}
-
-/* ═══════════════════════════════════════════
-   JANITORIAL SPLIT
-═══════════════════════════════════════════ */
-.split-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
-  align-items: center;
-}
-
-.split-content .sec-desc { max-width: 100%; }
-
-.checklist {
-  list-style: none;
-  display: flex; flex-direction: column; gap: 14px;
-  margin-top: 32px;
-}
-.checklist li {
-  display: flex; align-items: flex-start; gap: 14px;
-  font-size: .925rem; color: var(--body); line-height: 1.65;
-}
-.chk-box {
-  width: 24px; height: 24px; border-radius: 7px;
-  background: var(--blue);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 1px;
-}
-.chk-box svg { width: 13px; height: 13px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-
-.split-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
-
-.split-visual {
-  position: relative;
-}
-.visual-panel {
-  background: var(--blue-light);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--blue-mid);
-  aspect-ratio: 4/5;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 20px;
-  overflow: visible;
-  position: relative;
-}
-.vp-emoji { font-size: 6rem; }
-.vp-label {
-  font-size: .82rem; font-weight: 600; color: var(--body);
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 8px; padding: 7px 16px;
-}
-
-.vp-float {
-  position: absolute;
-  bottom: -20px; left: -28px; right: 28px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 16px 20px;
-  display: flex; align-items: center; gap: 14px;
-  box-shadow: 0 8px 32px rgba(0,0,0,.1);
-}
-.vf-ico {
-  width: 44px; height: 44px; border-radius: 11px;
-  background: #DCFCE7;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; flex-shrink: 0;
-}
-.vf-content strong { font-size: .9rem; font-weight: 700; color: var(--ink); display: block; }
-.vf-content span { font-size: .78rem; color: var(--muted); }
-
-/* ═══════════════════════════════════════════
-   OFFICE MANAGEMENT
-═══════════════════════════════════════════ */
-.mgmt-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--border);
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-.mgmt-card {
-  background: var(--white);
-  padding: 40px 36px;
-  transition: background .2s;
-  position: relative;
-}
-.mgmt-card:hover { background: var(--blue-light); }
-.mgmt-num {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 2.4rem; font-weight: 900;
-  color: var(--blue-mid); line-height: 1;
-  margin-bottom: 18px;
-}
-.mgmt-card h4 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: .9rem; font-weight: 800;
-  color: var(--ink); margin-bottom: 10px; letter-spacing: -.2px;
-}
-.mgmt-card p { font-size: .875rem; color: var(--muted); line-height: 1.7; }
-
-/* ═══════════════════════════════════════════
-   TESTIMONIALS
-═══════════════════════════════════════════ */
-.t-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.t-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  transition: transform .3s, box-shadow .3s;
-  display: flex; flex-direction: column;
-}
-.t-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.08); }
-.t-stars { display: flex; gap: 4px; margin-bottom: 18px; }
-.star {
-  width: 16px; height: 16px;
-  background: var(--gold);
-  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
-}
-.t-card blockquote {
-  font-size: .9rem; color: var(--body);
-  line-height: 1.8; font-style: italic;
-  flex: 1; margin-bottom: 24px;
-}
-.t-author { display: flex; align-items: center; gap: 14px; }
-.t-avatar {
-  width: 46px; height: 46px; border-radius: 50%;
-  background: var(--blue-light);
-  border: 2px solid var(--blue-mid);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Unbounded', sans-serif;
-  font-size: .75rem; font-weight: 800; color: var(--blue);
-  flex-shrink: 0;
-}
-.t-info .t-name { font-size: .9rem; font-weight: 700; color: var(--ink); }
-.t-info .t-role { font-size: .78rem; color: var(--muted); margin-top: 2px; }
-
-/* ═══════════════════════════════════════════
-   CTA
-═══════════════════════════════════════════ */
-.cta-section {
-  background: var(--ink);
-  padding: 120px 0;
-  position: relative; overflow: hidden;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  width: 800px; height: 800px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(29,78,216,.2), transparent 65%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.cta-inner { text-align: center; position: relative; z-index: 1; }
-.cta-inner h2 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: clamp(2rem, 4vw, 4rem);
-  font-weight: 900; color: var(--white);
-  line-height: 1.08; letter-spacing: -.8px;
-  margin-bottom: 20px;
-}
-.cta-inner h2 em { color: #93C5FD; font-style: normal; }
-.cta-inner p {
-  font-size: clamp(.95rem, 1.1vw, 1.1rem);
-  color: #94A3B8; max-width: 500px;
-  margin: 0 auto 44px; line-height: 1.8;
-}
-.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.btn-cta-white {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--white); color: var(--ink);
-  padding: 16px 36px; border-radius: var(--radius);
-  font-size: 1rem; font-weight: 700;
-  border: none; cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
-}
-.btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,.25); }
-.btn-cta-outline {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: transparent; color: var(--white);
-  padding: 16px 36px; border-radius: var(--radius);
-  font-size: 1rem; font-weight: 600;
-  border: 1.5px solid rgba(255,255,255,.3);
-  transition: border-color .2s, background .2s;
-}
-.btn-cta-outline:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.07); }
-
-/* Contact info pills */
-.cta-info {
-  display: flex; justify-content: center; gap: 24px;
-  flex-wrap: wrap; margin-top: 48px;
-}
-.cta-info-pill {
-  display: flex; align-items: center; gap: 10px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 100px; padding: 10px 20px;
-  font-size: .875rem; color: rgba(255,255,255,.75);
-}
-.cta-info-pill svg { width: 16px; height: 16px; stroke: #93C5FD; fill: none; stroke-width: 2; }
-
-/* ═══════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════ */
-.footer {
-  background: #020617;
-  padding: 88px 0 40px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1.2fr;
-  gap: 64px;
-  margin-bottom: 64px;
-}
-.footer-brand {}
-.footer-logo {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 1.2rem; font-weight: 900;
-  color: var(--white); margin-bottom: 18px;
-}
-.footer-logo em { color: #60A5FA; font-style: normal; }
-.footer-brand p {
-  font-size: .875rem; color: #475569;
-  line-height: 1.8; max-width: 280px;
-}
-.footer-socials { display: flex; gap: 10px; margin-top: 24px; }
-.f-soc {
-  width: 38px; height: 38px; border-radius: 10px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
-  display: flex; align-items: center; justify-content: center;
-  color: #475569; font-size: .78rem; font-weight: 700;
-  transition: background .2s, color .2s, border-color .2s;
-}
-.f-soc:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
-
-.f-col h5 {
-  font-size: .72rem; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: #334155; margin-bottom: 20px;
-}
-.f-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.f-col ul li a {
-  font-size: .875rem; color: #475569;
-  transition: color .15s;
-}
-.f-col ul li a:hover { color: var(--white); }
-
-.footer-contact-item {
-  display: flex; align-items: center; gap: 10px;
-  font-size: .875rem; color: #475569;
-  margin-bottom: 12px;
-}
-.footer-contact-item svg { width: 16px; height: 16px; stroke: #2563EB; fill: none; stroke-width: 1.8; flex-shrink: 0; }
-.footer-contact-item a { color: #475569; transition: color .15s; }
-.footer-contact-item a:hover { color: var(--white); }
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,.07);
-  padding-top: 32px;
-  display: flex; justify-content: space-between;
-  align-items: center; flex-wrap: wrap; gap: 12px;
-}
-.footer-bottom p { font-size: .82rem; color: #1E293B; }
-
-/* ═══════════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════════ */
-.r { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
-.r.v { opacity: 1; transform: none; }
-.r.d1 { transition-delay: .1s; }
-.r.d2 { transition-delay: .2s; }
-.r.d3 { transition-delay: .3s; }
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE — 1200px
-═══════════════════════════════════════════ */
-@media (max-width: 1200px) {
-  .hero-wrap { gap: 56px; }
-  .split-grid { gap: 64px; }
-  .footer-grid { grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 40px; }
-}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE — 1024px (Tablet landscape)
-═══════════════════════════════════════════ */
-@media (max-width: 1024px) {
-  :root { --nav-h: 68px; }
-
-  /* Nav */
-  .nav-links, .nav-tel { display: none; }
-  .hamburger { display: flex; }
-
-  /* Hero */
-  .hero::before { display: none; }
-  .hero-wrap { grid-template-columns: 1fr; gap: 0; padding-top: 60px; padding-bottom: 60px; }
-  .hero-right { display: none; }
-  .hero-stats { width: 100%; }
-  .hs { flex: 1; padding: 18px 20px; }
-
-  /* Services */
-  .srv-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-
-  /* Janitorial */
-  .split-grid { grid-template-columns: 1fr; gap: 56px; }
-
-  /* Mgmt */
-  .mgmt-grid { grid-template-columns: 1fr 1fr; }
-
-  /* Testimonials */
-  .t-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-
-  /* Stats band */
-  .stats-band-inner { grid-template-columns: 1fr 1fr; }
-
-  /* Footer */
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .footer-brand { grid-column: 1 / -1; }
-  .footer-brand p { max-width: 480px; }
-}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE — 768px (Tablet portrait)
-═══════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .section { padding: 80px 0; }
-
-  .hero-stats { flex-wrap: wrap; width: 100%; border-radius: 14px; }
-  .hs { flex: 1 1 40%; border-bottom: 1px solid var(--border); }
-  .hs:nth-child(odd) { border-right: 1px solid var(--border); }
-  .hs:nth-last-child(-n+2) { border-bottom: none; }
-
-  .sec-head-row { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .sec-head-row .sec-desc { max-width: 100%; }
-
-  .srv-grid { grid-template-columns: 1fr; gap: 16px; }
-  .mgmt-grid { grid-template-columns: 1fr; }
-  .t-grid { grid-template-columns: 1fr; gap: 16px; }
-
-  .stats-band-inner { grid-template-columns: 1fr 1fr; }
-  .sb-item { padding: 24px 16px; }
-
-  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-  .footer-brand { grid-column: auto; }
-}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE — 480px (Mobile)
-═══════════════════════════════════════════ */
-@media (max-width: 480px) {
-  :root { --nav-h: 60px; --gutter: 20px; }
-
-  .logo-name { font-size: .95rem; }
-
-  .hero h1 { letter-spacing: -1px; }
-  .hero-eyebrow { padding: 6px 14px 6px 6px; }
-  .eyebrow-dot { width: 28px; height: 28px; }
-  .hero-eyebrow span { font-size: .75rem; }
-
-  .hero-actions { flex-direction: column; }
-  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-
-  .hero-stats { border-radius: 12px; }
-  .hs { padding: 16px; }
-  .hs-num { font-size: 1.5rem; }
-
-  .stats-band-inner { grid-template-columns: 1fr 1fr; }
-
-  .hero-sectors { gap: 6px; }
-
-  .vp-float { left: 0; right: 0; bottom: -16px; }
-
-  .cta-inner h2 { letter-spacing: -.5px; }
-  .cta-buttons { flex-direction: column; align-items: center; }
-  .btn-cta-white, .btn-cta-outline { width: 100%; justify-content: center; }
-
-  .cta-info { flex-direction: column; align-items: center; }
-
-  .footer-socials { flex-wrap: wrap; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faisal Abbas – Pakistan's #1 Office Working Solution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ───────────── NAVBAR ───────────── -->
-<nav class="nav" id="navbar">
-  <div class="wrap nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-badge">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+  <!-- ───────────── NAVBAR ───────────── -->
+  <nav class="nav" id="navbar">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-badge">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <span class="logo-name">Faisal <span>Abbas</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#office">Management</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <span class="nav-tel">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          +92 327 8142883
+        </span>
+        <a href="#contact" class="btn-nav">Get a Quote</a>
       </div>
-      <span class="logo-name">Faisal <span>Abbas</span></span>
-    </a>
 
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#janitorial">Janitorial</a></li>
-      <li><a href="#office">Management</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <span class="nav-tel">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-        +92 XXX XXXXXXX
-      </span>
-      <a href="#contact" class="btn-nav">Get a Quote</a>
+      <button class="hamburger" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <button class="hamburger" id="ham" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+  <!-- Mobile Nav -->
+  <div class="mob-nav" id="mobNav">
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#office">Office Management</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="#contact" class="mob-cta">Get a Free Quote →</a>
   </div>
-</nav>
 
-<!-- Mobile Nav -->
-<div class="mob-nav" id="mobNav">
-  <a href="#services">Services</a>
-  <a href="#janitorial">Janitorial</a>
-  <a href="#office">Office Management</a>
-  <a href="#testimonials">Reviews</a>
-  <a href="#contact" class="mob-cta">Get a Free Quote →</a>
-</div>
-
-<!-- ───────────── HERO ───────────── -->
-<section class="hero">
-  <div class="wrap hero-wrap">
-
-    <!-- LEFT -->
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <div class="eyebrow-dot">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  <!-- ───────────── HERO ───────────── -->
+  <section class="hero">
+    <div class="wrap hero-wrap">
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <div class="eyebrow-dot">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span>Pakistan's #1 Office Working Solution</span>
         </div>
-        <span>Pakistan's #1 Office Working Solution</span>
-      </div>
 
-      <h1>
-        <span class="line-block">Complete</span>
-        <span class="line-block accent">Workspace</span>
-        <span class="line-block">Management</span>
-      </h1>
+        <h1>
+          <span class="line-block">Complete</span>
+          <span class="line-block accent">Workspace</span>
+          <span class="line-block">Management</span>
+        </h1>
 
-      <p class="hero-sub">Professional cleaning, facility management and office services for residential, commercial and industrial clients across Pakistan — since 2010.</p>
+        <p class="hero-sub">
+          Professional cleaning, facility management and office services for
+          residential, commercial and industrial clients across Pakistan — since 2010.
+        </p>
 
-      <div class="hero-sectors">
-        <span class="sector">🏠 Residential</span>
-        <span class="sector">🏢 Commercial</span>
-        <span class="sector">🏭 Industrial</span>
-      </div>
-
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">
-          Get Free Quote
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a href="#services" class="btn-secondary">View Services</a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="hs">
-          <div class="hs-num">1k<em>+</em></div>
-          <div class="hs-lbl">Clients</div>
+        <div class="hero-sectors">
+          <span class="sector">🏠 Residential</span>
+          <span class="sector">🏢 Commercial</span>
+          <span class="sector">🏭 Industrial</span>
         </div>
-        <div class="hs">
-          <div class="hs-num">460<em>+</em></div>
-          <div class="hs-lbl">Staff</div>
-        </div>
-        <div class="hs">
-          <div class="hs-num">1200<em>+</em></div>
-          <div class="hs-lbl">Projects</div>
-        </div>
-        <div class="hs">
-          <div class="hs-num">100<em>%</em></div>
-          <div class="hs-lbl">Satisfaction</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- RIGHT -->
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-title">Our Services</div>
-        <div class="svc-row"><div class="svc-ico ico-blue">🧹</div><div class="svc-info"><h4>Cleaning Services</h4><p>Residential, commercial & industrial</p></div></div>
-        <div class="svc-row"><div class="svc-ico ico-green">🔒</div><div class="svc-info"><h4>Security Services</h4><p>Trained guards + surveillance</p></div></div>
-        <div class="svc-row"><div class="svc-ico ico-amber">🏗️</div><div class="svc-info"><h4>Civil Works</h4><p>Renovation & maintenance</p></div></div>
-        <div class="svc-row"><div class="svc-ico ico-pink">📋</div><div class="svc-info"><h4>Office Management</h4><p>HR, procurement & compliance</p></div></div>
-        <div class="svc-row"><div class="svc-ico ico-teal">🌿</div><div class="svc-info"><h4>Landscaping</h4><p>Garden design & maintenance</p></div></div>
-      </div>
-
-      <div class="hero-trust">
-        <div class="trust-icon">⭐</div>
-        <div class="trust-text">
-          <strong>Trusted Since 2010</strong>
-          <span>Serving 1,000+ businesses and residences across Pakistan</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ───────────── STATS BAND ───────────── -->
-<div class="stats-band">
-  <div class="wrap">
-    <div class="stats-band-inner">
-      <div class="sb-item"><div class="sb-val">1k<em>+</em></div><div class="sb-lbl">Happy Clients</div></div>
-      <div class="sb-item"><div class="sb-val">460<em>+</em></div><div class="sb-lbl">Expert Staff</div></div>
-      <div class="sb-item"><div class="sb-val">1200<em>+</em></div><div class="sb-lbl">Projects Completed</div></div>
-      <div class="sb-item"><div class="sb-val">100<em>%</em></div><div class="sb-lbl">Client Satisfaction</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ───────────── SERVICES ───────────── -->
-<section class="section section-alt" id="services">
-  <div class="wrap">
-    <div class="sec-head-row r">
-      <div>
-        <span class="sec-eyebrow">What We Offer</span>
-        <h2 class="sec-title">Our Core Services</h2>
-      </div>
-      <p class="sec-desc">From routine cleaning to full facility management — everything your workspace needs, under one roof.</p>
-    </div>
-
-    <div class="srv-grid">
-      <div class="srv-card r">
-        <div class="srv-top"><div class="srv-icon">🧹</div><div class="srv-arrow">↗</div></div>
-        <h3>Cleaning Services</h3>
-        <p>Deep cleaning for offices, malls, hospitals and homes using certified eco-friendly products and trained staff.</p>
-        <span class="srv-tag">Residential · Commercial</span>
-      </div>
-      <div class="srv-card r d1">
-        <div class="srv-top"><div class="srv-icon">🅿️</div><div class="srv-arrow">↗</div></div>
-        <h3>Parking Management</h3>
-        <p>Trained valet and parking staff ensuring smooth vehicle flow, safety and a professional experience for visitors.</p>
-        <span class="srv-tag">Commercial · Industrial</span>
-      </div>
-      <div class="srv-card r d2">
-        <div class="srv-top"><div class="srv-icon">🏗️</div><div class="srv-arrow">↗</div></div>
-        <h3>Civil Works</h3>
-        <p>Renovation, repair and maintenance for commercial and industrial premises by qualified civil engineering teams.</p>
-        <span class="srv-tag">Industrial · Commercial</span>
-      </div>
-      <div class="srv-card r">
-        <div class="srv-top"><div class="srv-icon">📋</div><div class="srv-arrow">↗</div></div>
-        <h3>Office Management</h3>
-        <p>Complete workspace management including HR, procurement, communications and compliance across all departments.</p>
-        <span class="srv-tag">All Sectors</span>
-      </div>
-      <div class="srv-card r d1">
-        <div class="srv-top"><div class="srv-icon">🔒</div><div class="srv-arrow">↗</div></div>
-        <h3>Security Services</h3>
-        <p>Background-verified guards and CCTV management for round-the-clock protection of your premises and assets.</p>
-        <span class="srv-tag">Residential · Commercial</span>
-      </div>
-      <div class="srv-card r d2">
-        <div class="srv-top"><div class="srv-icon">🌿</div><div class="srv-arrow">↗</div></div>
-        <h3>Landscaping</h3>
-        <p>Garden design, planting and maintenance to keep your outdoor spaces pristine, green and professional.</p>
-        <span class="srv-tag">Residential · Corporate</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────────── JANITORIAL ───────────── -->
-<section class="section section-white" id="janitorial">
-  <div class="wrap">
-    <div class="split-grid">
-      <div class="split-content r">
-        <span class="sec-eyebrow">Deep Cleaning</span>
-        <h2 class="sec-title">Janitorial Services</h2>
-        <p class="sec-desc">Consistently high-quality janitorial services across all sectors — with fully insured, background-verified staff using international hygiene standards.</p>
-
-        <ul class="checklist">
-          <li><span class="chk-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Daily, weekly and monthly contracts available</li>
-          <li><span class="chk-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Certified eco-friendly cleaning products used</li>
-          <li><span class="chk-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Specialized post-construction cleaning</li>
-          <li><span class="chk-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Fully insured and background-verified staff</li>
-          <li><span class="chk-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>24/7 emergency cleaning response available</li>
-          <li><span class="chk-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>International hygiene standards compliant</li>
-        </ul>
-
-        <div class="split-actions">
+        <div class="hero-actions">
           <a href="#contact" class="btn-primary">
-            Book a Cleaning
+            Get Free Quote
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="tel:+92XXXXXXXXXX" class="btn-secondary">📞 Call Now</a>
+          <a href="#services" class="btn-secondary">View Services</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hs">
+            <div class="hs-num">15<em>+</em></div>
+            <div class="hs-lbl">Years Active</div>
+          </div>
+          <div class="hs">
+            <div class="hs-num">500<em>+</em></div>
+            <div class="hs-lbl">Projects Done</div>
+          </div>
+          <div class="hs">
+            <div class="hs-num">200<em>+</em></div>
+            <div class="hs-lbl">Clients</div>
+          </div>
+          <div class="hs">
+            <div class="hs-num">98<em>%</em></div>
+            <div class="hs-lbl">Satisfaction</div>
+          </div>
         </div>
       </div>
 
-      <div class="split-visual r d1">
-        <div class="visual-panel">
-          <div class="vp-emoji">🧽</div>
-          <div class="vp-label">Professional Grade Equipment</div>
-          <div class="vp-float">
-            <div class="vf-ico">✅</div>
-            <div class="vf-content">
-              <strong>ISO Certified Process</strong>
-              <span>International hygiene standards</span>
+      <!-- RIGHT -->
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-title">Our Core Services</div>
+          <div class="svc-row">
+            <div class="svc-ico ico-blue">🧹</div>
+            <div class="svc-info">
+              <h4>Cleaning &amp; Janitorial</h4>
+              <p>Deep cleaning for all sectors</p>
+            </div>
+          </div>
+          <div class="svc-row">
+            <div class="svc-ico ico-green">🔒</div>
+            <div class="svc-info">
+              <h4>Security Services</h4>
+              <p>24/7 verified guard deployment</p>
+            </div>
+          </div>
+          <div class="svc-row">
+            <div class="svc-ico ico-amber">🅿️</div>
+            <div class="svc-info">
+              <h4>Parking Management</h4>
+              <p>Professional valet &amp; traffic flow</p>
+            </div>
+          </div>
+          <div class="svc-row">
+            <div class="svc-ico ico-teal">🏗️</div>
+            <div class="svc-info">
+              <h4>Civil Works</h4>
+              <p>Renovation &amp; maintenance</p>
+            </div>
+          </div>
+          <div class="svc-row">
+            <div class="svc-ico ico-pink">🌿</div>
+            <div class="svc-info">
+              <h4>Landscaping</h4>
+              <p>Garden design &amp; maintenance</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-trust">
+          <div class="trust-icon">🏆</div>
+          <div class="trust-text">
+            <strong>Trusted by 200+ Businesses</strong>
+            <span>From Lahore to all major cities in Pakistan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── STATS BAND ───────────── -->
+  <div class="stats-band">
+    <div class="wrap">
+      <div class="stats-band-inner">
+        <div class="sb-item">
+          <div class="sb-val">500<em>+</em></div>
+          <div class="sb-lbl">Projects Completed</div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-val">200<em>+</em></div>
+          <div class="sb-lbl">Happy Clients</div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-val">15<em>yrs</em></div>
+          <div class="sb-lbl">Industry Experience</div>
+        </div>
+        <div class="sb-item">
+          <div class="sb-val">98<em>%</em></div>
+          <div class="sb-lbl">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────────── SERVICES ───────────── -->
+  <section class="section section-alt" id="services">
+    <div class="wrap">
+      <div class="sec-head-row r">
+        <div>
+          <span class="sec-eyebrow">What We Offer</span>
+          <h2 class="sec-title">Our Core Services</h2>
+        </div>
+        <p class="sec-desc">From routine cleaning to full facility management — everything your workspace needs, under one roof.</p>
+      </div>
+
+      <div class="srv-grid">
+        <div class="srv-card r">
+          <div class="srv-top">
+            <div class="srv-icon">🧹</div>
+            <div class="srv-arrow">↗</div>
+          </div>
+          <h3>Cleaning Services</h3>
+          <p>Deep cleaning for offices, malls, hospitals and homes using certified eco-friendly products and trained staff.</p>
+          <span class="srv-tag">Residential · Commercial</span>
+        </div>
+        <div class="srv-card r d1">
+          <div class="srv-top">
+            <div class="srv-icon">🅿️</div>
+            <div class="srv-arrow">↗</div>
+          </div>
+          <h3>Parking Management</h3>
+          <p>Trained valet and parking staff ensuring smooth vehicle flow, safety and a professional experience for visitors.</p>
+          <span class="srv-tag">Commercial · Industrial</span>
+        </div>
+        <div class="srv-card r d2">
+          <div class="srv-top">
+            <div class="srv-icon">🏗️</div>
+            <div class="srv-arrow">↗</div>
+          </div>
+          <h3>Civil Works</h3>
+          <p>Renovation, repair and maintenance for commercial and industrial premises by qualified civil engineering teams.</p>
+          <span class="srv-tag">Industrial · Commercial</span>
+        </div>
+        <div class="srv-card r">
+          <div class="srv-top">
+            <div class="srv-icon">📋</div>
+            <div class="srv-arrow">↗</div>
+          </div>
+          <h3>Office Management</h3>
+          <p>Complete workspace management including HR, procurement, communications and compliance across all departments.</p>
+          <span class="srv-tag">All Sectors</span>
+        </div>
+        <div class="srv-card r d1">
+          <div class="srv-top">
+            <div class="srv-icon">🔒</div>
+            <div class="srv-arrow">↗</div>
+          </div>
+          <h3>Security Services</h3>
+          <p>Background-verified guards and CCTV management for round-the-clock protection of your premises and assets.</p>
+          <span class="srv-tag">Residential · Commercial</span>
+        </div>
+        <div class="srv-card r d2">
+          <div class="srv-top">
+            <div class="srv-icon">🌿</div>
+            <div class="srv-arrow">↗</div>
+          </div>
+          <h3>Landscaping</h3>
+          <p>Garden design, planting and maintenance to keep your outdoor spaces pristine, green and professional.</p>
+          <span class="srv-tag">Residential · Corporate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── PROJECTS ───────────── -->
+  <section class="section section-white" id="projects">
+    <div class="wrap">
+      <div class="sec-head-center r">
+        <span class="sec-eyebrow">Our Portfolio</span>
+        <h2 class="sec-title">Featured Projects</h2>
+        <p class="sec-desc">A selection of our most impactful work across Pakistan's commercial, industrial and residential sectors.</p>
+      </div>
+
+      <div class="proj-grid">
+        <div class="proj-card r">
+          <div class="proj-thumb">🏢</div>
+          <div class="proj-body">
+            <div class="proj-cat">Commercial · Lahore</div>
+            <h3>DHA Corporate Tower — Full Facility Takeover</h3>
+            <p>End-to-end facility management for a 22-floor commercial tower including cleaning, security, parking and civil maintenance for 80+ tenant businesses.</p>
+            <div class="proj-meta">
+              <span class="proj-year">2024</span>
+              <span class="proj-tag">Ongoing Contract</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card r d1">
+          <div class="proj-thumb">🏥</div>
+          <div class="proj-body">
+            <div class="proj-cat">Healthcare · Islamabad</div>
+            <h3>Shifa International Hospital — Janitorial Programme</h3>
+            <p>ISO-compliant daily janitorial programme across 300+ rooms and common areas with specialised bio-safe cleaning protocols and daily compliance reporting.</p>
+            <div class="proj-meta">
+              <span class="proj-year">2023</span>
+              <span class="proj-tag">3-Year Contract</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card r d2">
+          <div class="proj-thumb">🏭</div>
+          <div class="proj-body">
+            <div class="proj-cat">Industrial · Faisalabad</div>
+            <h3>Nishat Textile Mills — Industrial Grounds Management</h3>
+            <p>Complete grounds and landscaping management for a 40-acre industrial facility including weekly maintenance, seasonal planting and irrigation systems.</p>
+            <div class="proj-meta">
+              <span class="proj-year">2023</span>
+              <span class="proj-tag">Annual Contract</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card r">
+          <div class="proj-thumb">🏨</div>
+          <div class="proj-body">
+            <div class="proj-cat">Hospitality · Lahore</div>
+            <h3>Pearl Continental Hotel — Housekeeping &amp; Parking</h3>
+            <p>Managed valet parking and deep housekeeping services for Pakistan's premier hotel, training and deploying a team of 45 uniformed staff.</p>
+            <div class="proj-meta">
+              <span class="proj-year">2022</span>
+              <span class="proj-tag">Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card r d1">
+          <div class="proj-thumb">🏫</div>
+          <div class="proj-body">
+            <div class="proj-cat">Education · Lahore</div>
+            <h3>LUMS University — Campus Facility Management</h3>
+            <p>Full-campus facility management encompassing cleaning, civil works and security for one of Pakistan's top universities across a 100-acre site.</p>
+            <div class="proj-meta">
+              <span class="proj-year">2022</span>
+              <span class="proj-tag">Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card r d2">
+          <div class="proj-thumb">🏬</div>
+          <div class="proj-body">
+            <div class="proj-cat">Retail · Lahore</div>
+            <h3>Packages Mall — Retail Cleaning &amp; Security</h3>
+            <p>Daily retail cleaning, waste management and uniformed security services for one of Lahore's largest shopping centres with 200+ retail outlets.</p>
+            <div class="proj-meta">
+              <span class="proj-year">2021</span>
+              <span class="proj-tag">Completed</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ───────────── OFFICE MANAGEMENT ───────────── -->
-<section class="section section-alt" id="office">
-  <div class="wrap">
-    <div class="sec-head-center r">
-      <span class="sec-eyebrow">Facility Management</span>
-      <h2 class="sec-title">Office Management Services</h2>
-      <p class="sec-desc">A structured, end-to-end approach to running your workspace at peak efficiency — from staffing to compliance.</p>
-    </div>
-
-    <div class="mgmt-grid">
-      <div class="mgmt-card r"><div class="mgmt-num">01</div><h4>Organisational Structure</h4><p>Clear reporting lines and departmental roles for optimal productivity and accountability.</p></div>
-      <div class="mgmt-card r d1"><div class="mgmt-num">02</div><h4>Communications</h4><p>Streamlined frameworks keeping your teams aligned, informed and responsive at all times.</p></div>
-      <div class="mgmt-card r d2"><div class="mgmt-num">03</div><h4>Procurement Management</h4><p>Strategic sourcing and vendor negotiation to reduce costs while improving reliability.</p></div>
-      <div class="mgmt-card r"><div class="mgmt-num">04</div><h4>HR & Staffing</h4><p>End-to-end HR management including hiring, training, performance reviews and payroll.</p></div>
-      <div class="mgmt-card r d1"><div class="mgmt-num">05</div><h4>Maintenance Planning</h4><p>Preventive and reactive maintenance scheduling to keep your assets in optimal condition.</p></div>
-      <div class="mgmt-card r d2"><div class="mgmt-num">06</div><h4>Compliance & Reporting</h4><p>Regulatory compliance monitoring with dashboards for full operational visibility.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────────── TESTIMONIALS ───────────── -->
-<section class="section section-white" id="testimonials">
-  <div class="wrap">
-    <div class="sec-head-row r">
-      <div>
-        <span class="sec-eyebrow">Client Reviews</span>
-        <h2 class="sec-title">What Our Clients Say</h2>
+  <!-- ───────────── OFFICE MANAGEMENT ───────────── -->
+  <section class="section section-alt" id="office">
+    <div class="wrap">
+      <div class="sec-head-center r">
+        <span class="sec-eyebrow">Facility Management</span>
+        <h2 class="sec-title">Office Management Services</h2>
+        <p class="sec-desc">A structured, end-to-end approach to running your workspace at peak efficiency — from staffing to compliance.</p>
       </div>
-      <p class="sec-desc">Trusted by hundreds of businesses and homeowners across Pakistan for reliability and quality.</p>
-    </div>
 
-    <div class="t-grid">
-      <div class="t-card r">
-        <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-        <blockquote>"Faisal Abbas transformed how our corporate office looks and operates. Their janitorial team is always on time, professional and thorough. Highly recommended to every business."</blockquote>
-        <div class="t-author">
-          <div class="t-avatar">AK</div>
-          <div class="t-info"><div class="t-name">Ahmed Khan</div><div class="t-role">CEO, TechPak Solutions</div></div>
+      <div class="mgmt-grid">
+        <div class="mgmt-card r">
+          <div class="mgmt-num">01</div>
+          <h4>Organisational Structure</h4>
+          <p>Clear reporting lines and departmental roles for optimal productivity and accountability.</p>
         </div>
-      </div>
-      <div class="t-card r d1">
-        <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-        <blockquote>"We have been working with them for 3 years. Their office management service keeps everything running smoothly — from procurement to staffing. Absolutely reliable."</blockquote>
-        <div class="t-author">
-          <div class="t-avatar">SA</div>
-          <div class="t-info"><div class="t-name">Sara Aslam</div><div class="t-role">Operations Director, MediCorp</div></div>
+        <div class="mgmt-card r d1">
+          <div class="mgmt-num">02</div>
+          <h4>Communications</h4>
+          <p>Streamlined frameworks keeping your teams aligned, informed and responsive at all times.</p>
         </div>
-      </div>
-      <div class="t-card r d2">
-        <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-        <blockquote>"Best facility management company in Lahore. Teams are trained, uniformed and always exceed expectations. Our guests always compliment the cleanliness."</blockquote>
-        <div class="t-author">
-          <div class="t-avatar">MR</div>
-          <div class="t-info"><div class="t-name">Muhammad Raza</div><div class="t-role">Manager, Pearl Continental</div></div>
+        <div class="mgmt-card r d2">
+          <div class="mgmt-num">03</div>
+          <h4>Procurement Management</h4>
+          <p>Strategic sourcing and vendor negotiation to reduce costs while improving reliability.</p>
+        </div>
+        <div class="mgmt-card r">
+          <div class="mgmt-num">04</div>
+          <h4>HR &amp; Staffing</h4>
+          <p>End-to-end HR management including hiring, training, performance reviews and payroll.</p>
+        </div>
+        <div class="mgmt-card r d1">
+          <div class="mgmt-num">05</div>
+          <h4>Maintenance Planning</h4>
+          <p>Preventive and reactive maintenance scheduling to keep your assets in optimal condition.</p>
+        </div>
+        <div class="mgmt-card r d2">
+          <div class="mgmt-num">06</div>
+          <h4>Compliance &amp; Reporting</h4>
+          <p>Regulatory compliance monitoring with dashboards for full operational visibility.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ───────────── CTA ───────────── -->
-<section class="cta-section" id="contact">
-  <div class="wrap">
-    <div class="cta-inner">
-      <h2>Ready to Elevate<br><em>Your Workspace?</em></h2>
-      <p>Get a personalised quote within 24 hours. No commitment — just honest, professional service across Pakistan.</p>
-      <div class="cta-buttons">
-        <a href="tel:+92XXXXXXXXXX" class="btn-cta-white">📞 Call Now</a>
-        <a href="mailto:info@faisalabbas.pk" class="btn-cta-outline">✉️ Send Email</a>
-      </div>
-      <div class="cta-info">
-        <div class="cta-info-pill">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Lahore, Pakistan
+  <!-- ───────────── TESTIMONIALS ───────────── -->
+  <section class="section section-white" id="testimonials">
+    <div class="wrap">
+      <div class="sec-head-row r">
+        <div>
+          <span class="sec-eyebrow">Client Reviews</span>
+          <h2 class="sec-title">What Our Clients Say</h2>
         </div>
-        <div class="cta-info-pill">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Mon–Sat, 9am–7pm
-        </div>
-        <div class="cta-info-pill">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-          +92 XXX XXXXXXX
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────────── FOOTER ───────────── -->
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Faisal <em>Abbas</em></div>
-        <p>Pakistan's leading office and facility management company delivering excellence across residential, commercial and industrial sectors since 2010.</p>
-        <div class="footer-socials">
-          <a href="#" class="f-soc">fb</a>
-          <a href="#" class="f-soc">ig</a>
-          <a href="#" class="f-soc">yt</a>
-          <a href="#" class="f-soc">li</a>
-        </div>
+        <p class="sec-desc">Trusted by hundreds of businesses and homeowners across Pakistan for reliability and quality.</p>
       </div>
 
-      <div class="f-col">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="#">Cleaning Services</a></li>
-          <li><a href="#">Janitorial</a></li>
-          <li><a href="#">Parking Management</a></li>
-          <li><a href="#">Civil Works</a></li>
-          <li><a href="#">Security</a></li>
-          <li><a href="#">Landscaping</a></li>
-        </ul>
-      </div>
-
-      <div class="f-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="contact.html">Contact us</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Signup</a></li>
-        </ul>
-      </div>
-
-      <div class="f-col">
-        <h5>Contact</h5>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Lahore, Pakistan</span>
+      <div class="t-grid">
+        <div class="t-card r">
+          <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <blockquote>"Faisal Abbas transformed how our corporate office looks and operates. Their team is always on time, professional and thorough. Highly recommended to every business."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">AK</div>
+            <div class="t-info">
+              <div class="t-name">Ahmed Khan</div>
+              <div class="t-role">CEO, TechPak Solutions</div>
+            </div>
+          </div>
         </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-          <a href="tel:+92XXXXXXXXXX">+92 XXX XXXXXXX</a>
+        <div class="t-card r d1">
+          <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <blockquote>"We have been working with them for 3 years. Their office management service keeps everything running smoothly — from procurement to staffing. Absolutely reliable."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">SA</div>
+            <div class="t-info">
+              <div class="t-name">Sara Aslam</div>
+              <div class="t-role">Operations Director, MediCorp</div>
+            </div>
+          </div>
         </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:info@faisalabbas.pk">info@faisalabbas.pk</a>
-        </div>
-        <div class="footer-contact-item">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>Mon–Sat, 9am–7pm</span>
+        <div class="t-card r d2">
+          <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <blockquote>"Best facility management company in Lahore. Teams are trained, uniformed and always exceed expectations. Our guests always compliment the cleanliness and service."</blockquote>
+          <div class="t-author">
+            <div class="t-avatar">MR</div>
+            <div class="t-info">
+              <div class="t-name">Muhammad Raza</div>
+              <div class="t-role">Manager, Pearl Continental</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="footer-bottom">
-      <p>© 2026 Faisal Abbas. All rights reserved.</p>
-      <p>Residential · Commercial · Industrial</p>
+  <!-- ───────────── CTA ───────────── -->
+  <section class="cta-section" id="contact">
+    <div class="wrap">
+      <div class="cta-inner">
+        <h2>Ready to Elevate<br /><em>Your Workspace?</em></h2>
+        <p>Get a personalised quote within 24 hours. No commitment — just honest, professional service across Pakistan.</p>
+        <div class="cta-buttons">
+          <a href="tel:+923278142883" class="btn-cta-white">📞 Call Now</a>
+          <a href="contact.html" class="btn-cta-outline">✉️ Send a Message</a>
+        </div>
+        <div class="cta-info">
+          <div class="cta-info-pill">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Lahore, Pakistan
+          </div>
+          <div class="cta-info-pill">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon–Sat, 9am–7pm
+          </div>
+          <div class="cta-info-pill">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            +92 327 8142883
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script>
-// Nav scroll
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  <!-- ───────────── FOOTER ───────────── -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Faisal <em>Abbas</em></div>
+          <p>Pakistan's leading office and facility management company delivering excellence across residential, commercial and industrial sectors since 2010.</p>
+          <div class="footer-socials">
+            <a href="#" class="f-soc">fb</a>
+            <a href="#" class="f-soc">ig</a>
+            <a href="#" class="f-soc">yt</a>
+            <a href="#" class="f-soc">li</a>
+          </div>
+        </div>
+        <div class="f-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Cleaning Services</a></li>
+            <li><a href="#services">Parking Management</a></li>
+            <li><a href="#services">Civil Works</a></li>
+            <li><a href="#services">Security</a></li>
+            <li><a href="#services">Landscaping</a></li>
+            <li><a href="#office">Office Management</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h5>Contact</h5>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Lahore, Pakistan</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            <a href="tel:+923278142883">+92 327 8142883</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@faisalabbas.pk">info@faisalabbas.pk</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Mon–Sat, 9am–7pm</span>
+          </div>
+        </div>
+      </div>
 
-// Hamburger
-const ham = document.getElementById('ham');
-const mob = document.getElementById('mobNav');
-ham.addEventListener('click', () => {
-  ham.classList.toggle('open');
-  mob.classList.toggle('open');
-});
-mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  mob.classList.remove('open');
-  ham.classList.remove('open');
-}));
+      <div class="footer-bottom">
+        <p>© 2026 Faisal Abbas. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a></p>
+      </div>
+    </div>
+  </footer>
 
-// Scroll reveal
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.r').forEach(el => obs.observe(el));
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    const target = document.querySelector(id);
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-</script>
+  <script src="main.js"></script>
 </body>
 </html>
