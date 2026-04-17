@@ -1,537 +1,690 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Faisal Abbas – Pakistan's #1 Office Working Solution</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <!-- ───────────── NAVBAR ───────────── -->
-  <nav class="nav" id="navbar">
-    <div class="wrap nav-inner">
-      <a href="index.html" class="logo">
-        <div class="logo-badge">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <span class="logo-name">Faisal <span>Abbas</span></span>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#office">Management</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav-right">
-        <span class="nav-tel">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-          +92 327 8142883
-        </span>
-        <a href="#contact" class="btn-nav">Get a Quote</a>
-      </div>
-
-      <button class="hamburger" id="ham" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Nav -->
-  <div class="mob-nav" id="mobNav">
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#office">Office Management</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-    <a href="#contact" class="mob-cta">Get a Free Quote →</a>
-  </div>
-
-  <!-- ───────────── HERO ───────────── -->
-  <section class="hero">
-    <div class="wrap hero-wrap">
-      <!-- LEFT -->
-      <div class="hero-left">
-        <div class="hero-eyebrow">
-          <div class="eyebrow-dot">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <span>Pakistan's #1 Office Working Solution</span>
-        </div>
-
-        <h1>
-          <span class="line-block">Complete</span>
-          <span class="line-block accent">Workspace</span>
-          <span class="line-block">Management</span>
-        </h1>
-
-        <p class="hero-sub">
-          Professional cleaning, facility management and office services for
-          residential, commercial and industrial clients across Pakistan — since 2010.
-        </p>
-
-        <div class="hero-sectors">
-          <span class="sector">🏠 Residential</span>
-          <span class="sector">🏢 Commercial</span>
-          <span class="sector">🏭 Industrial</span>
-        </div>
-
-        <div class="hero-actions">
-          <a href="#contact" class="btn-primary">
-            Get Free Quote
-            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faisal Abbas – Pakistan's #1 Office Working Solution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ───────────── NAVBAR ───────────── -->
+    <nav class="nav" id="navbar">
+      <div class="wrap nav-inner">
+        <div class="nav-left">
+          <a href="index.html" class="logo">
+            <div class="logo-badge">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <span class="logo-name">Faisal <span>Abbas</span></span>
           </a>
-          <a href="#services" class="btn-secondary">View Services</a>
-        </div>
 
-        <div class="hero-stats">
-          <div class="hs">
-            <div class="hs-num">15<em>+</em></div>
-            <div class="hs-lbl">Years Active</div>
-          </div>
-          <div class="hs">
-            <div class="hs-num">500<em>+</em></div>
-            <div class="hs-lbl">Projects Done</div>
-          </div>
-          <div class="hs">
-            <div class="hs-num">200<em>+</em></div>
-            <div class="hs-lbl">Clients</div>
-          </div>
-          <div class="hs">
-            <div class="hs-num">98<em>%</em></div>
-            <div class="hs-lbl">Satisfaction</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT -->
-      <div class="hero-right">
-        <div class="hero-card">
-          <div class="hero-card-title">Our Core Services</div>
-          <div class="svc-row">
-            <div class="svc-ico ico-blue">🧹</div>
-            <div class="svc-info">
-              <h4>Cleaning &amp; Janitorial</h4>
-              <p>Deep cleaning for all sectors</p>
-            </div>
-          </div>
-          <div class="svc-row">
-            <div class="svc-ico ico-green">🔒</div>
-            <div class="svc-info">
-              <h4>Security Services</h4>
-              <p>24/7 verified guard deployment</p>
-            </div>
-          </div>
-          <div class="svc-row">
-            <div class="svc-ico ico-amber">🅿️</div>
-            <div class="svc-info">
-              <h4>Parking Management</h4>
-              <p>Professional valet &amp; traffic flow</p>
-            </div>
-          </div>
-          <div class="svc-row">
-            <div class="svc-ico ico-teal">🏗️</div>
-            <div class="svc-info">
-              <h4>Civil Works</h4>
-              <p>Renovation &amp; maintenance</p>
-            </div>
-          </div>
-          <div class="svc-row">
-            <div class="svc-ico ico-pink">🌿</div>
-            <div class="svc-info">
-              <h4>Landscaping</h4>
-              <p>Garden design &amp; maintenance</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-trust">
-          <div class="trust-icon">🏆</div>
-          <div class="trust-text">
-            <strong>Trusted by 200+ Businesses</strong>
-            <span>From Lahore to all major cities in Pakistan</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── STATS BAND ───────────── -->
-  <div class="stats-band">
-    <div class="wrap">
-      <div class="stats-band-inner">
-        <div class="sb-item">
-          <div class="sb-val">500<em>+</em></div>
-          <div class="sb-lbl">Projects Completed</div>
-        </div>
-        <div class="sb-item">
-          <div class="sb-val">200<em>+</em></div>
-          <div class="sb-lbl">Happy Clients</div>
-        </div>
-        <div class="sb-item">
-          <div class="sb-val">15<em>yrs</em></div>
-          <div class="sb-lbl">Industry Experience</div>
-        </div>
-        <div class="sb-item">
-          <div class="sb-val">98<em>%</em></div>
-          <div class="sb-lbl">Client Satisfaction</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ───────────── SERVICES ───────────── -->
-  <section class="section section-alt" id="services">
-    <div class="wrap">
-      <div class="sec-head-row r">
-        <div>
-          <span class="sec-eyebrow">What We Offer</span>
-          <h2 class="sec-title">Our Core Services</h2>
-        </div>
-        <p class="sec-desc">From routine cleaning to full facility management — everything your workspace needs, under one roof.</p>
-      </div>
-
-      <div class="srv-grid">
-        <div class="srv-card r">
-          <div class="srv-top">
-            <div class="srv-icon">🧹</div>
-            <div class="srv-arrow">↗</div>
-          </div>
-          <h3>Cleaning Services</h3>
-          <p>Deep cleaning for offices, malls, hospitals and homes using certified eco-friendly products and trained staff.</p>
-          <span class="srv-tag">Residential · Commercial</span>
-        </div>
-        <div class="srv-card r d1">
-          <div class="srv-top">
-            <div class="srv-icon">🅿️</div>
-            <div class="srv-arrow">↗</div>
-          </div>
-          <h3>Parking Management</h3>
-          <p>Trained valet and parking staff ensuring smooth vehicle flow, safety and a professional experience for visitors.</p>
-          <span class="srv-tag">Commercial · Industrial</span>
-        </div>
-        <div class="srv-card r d2">
-          <div class="srv-top">
-            <div class="srv-icon">🏗️</div>
-            <div class="srv-arrow">↗</div>
-          </div>
-          <h3>Civil Works</h3>
-          <p>Renovation, repair and maintenance for commercial and industrial premises by qualified civil engineering teams.</p>
-          <span class="srv-tag">Industrial · Commercial</span>
-        </div>
-        <div class="srv-card r">
-          <div class="srv-top">
-            <div class="srv-icon">📋</div>
-            <div class="srv-arrow">↗</div>
-          </div>
-          <h3>Office Management</h3>
-          <p>Complete workspace management including HR, procurement, communications and compliance across all departments.</p>
-          <span class="srv-tag">All Sectors</span>
-        </div>
-        <div class="srv-card r d1">
-          <div class="srv-top">
-            <div class="srv-icon">🔒</div>
-            <div class="srv-arrow">↗</div>
-          </div>
-          <h3>Security Services</h3>
-          <p>Background-verified guards and CCTV management for round-the-clock protection of your premises and assets.</p>
-          <span class="srv-tag">Residential · Commercial</span>
-        </div>
-        <div class="srv-card r d2">
-          <div class="srv-top">
-            <div class="srv-icon">🌿</div>
-            <div class="srv-arrow">↗</div>
-          </div>
-          <h3>Landscaping</h3>
-          <p>Garden design, planting and maintenance to keep your outdoor spaces pristine, green and professional.</p>
-          <span class="srv-tag">Residential · Corporate</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── PROJECTS ───────────── -->
-  <section class="section section-white" id="projects">
-    <div class="wrap">
-      <div class="sec-head-center r">
-        <span class="sec-eyebrow">Our Portfolio</span>
-        <h2 class="sec-title">Featured Projects</h2>
-        <p class="sec-desc">A selection of our most impactful work across Pakistan's commercial, industrial and residential sectors.</p>
-      </div>
-
-      <div class="proj-grid">
-        <div class="proj-card r">
-          <div class="proj-thumb">🏢</div>
-          <div class="proj-body">
-            <div class="proj-cat">Commercial · Lahore</div>
-            <h3>DHA Corporate Tower — Full Facility Takeover</h3>
-            <p>End-to-end facility management for a 22-floor commercial tower including cleaning, security, parking and civil maintenance for 80+ tenant businesses.</p>
-            <div class="proj-meta">
-              <span class="proj-year">2024</span>
-              <span class="proj-tag">Ongoing Contract</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card r d1">
-          <div class="proj-thumb">🏥</div>
-          <div class="proj-body">
-            <div class="proj-cat">Healthcare · Islamabad</div>
-            <h3>Shifa International Hospital — Janitorial Programme</h3>
-            <p>ISO-compliant daily janitorial programme across 300+ rooms and common areas with specialised bio-safe cleaning protocols and daily compliance reporting.</p>
-            <div class="proj-meta">
-              <span class="proj-year">2023</span>
-              <span class="proj-tag">3-Year Contract</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card r d2">
-          <div class="proj-thumb">🏭</div>
-          <div class="proj-body">
-            <div class="proj-cat">Industrial · Faisalabad</div>
-            <h3>Nishat Textile Mills — Industrial Grounds Management</h3>
-            <p>Complete grounds and landscaping management for a 40-acre industrial facility including weekly maintenance, seasonal planting and irrigation systems.</p>
-            <div class="proj-meta">
-              <span class="proj-year">2023</span>
-              <span class="proj-tag">Annual Contract</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card r">
-          <div class="proj-thumb">🏨</div>
-          <div class="proj-body">
-            <div class="proj-cat">Hospitality · Lahore</div>
-            <h3>Pearl Continental Hotel — Housekeeping &amp; Parking</h3>
-            <p>Managed valet parking and deep housekeeping services for Pakistan's premier hotel, training and deploying a team of 45 uniformed staff.</p>
-            <div class="proj-meta">
-              <span class="proj-year">2022</span>
-              <span class="proj-tag">Completed</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card r d1">
-          <div class="proj-thumb">🏫</div>
-          <div class="proj-body">
-            <div class="proj-cat">Education · Lahore</div>
-            <h3>LUMS University — Campus Facility Management</h3>
-            <p>Full-campus facility management encompassing cleaning, civil works and security for one of Pakistan's top universities across a 100-acre site.</p>
-            <div class="proj-meta">
-              <span class="proj-year">2022</span>
-              <span class="proj-tag">Completed</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="proj-card r d2">
-          <div class="proj-thumb">🏬</div>
-          <div class="proj-body">
-            <div class="proj-cat">Retail · Lahore</div>
-            <h3>Packages Mall — Retail Cleaning &amp; Security</h3>
-            <p>Daily retail cleaning, waste management and uniformed security services for one of Lahore's largest shopping centres with 200+ retail outlets.</p>
-            <div class="proj-meta">
-              <span class="proj-year">2021</span>
-              <span class="proj-tag">Completed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── OFFICE MANAGEMENT ───────────── -->
-  <section class="section section-alt" id="office">
-    <div class="wrap">
-      <div class="sec-head-center r">
-        <span class="sec-eyebrow">Facility Management</span>
-        <h2 class="sec-title">Office Management Services</h2>
-        <p class="sec-desc">A structured, end-to-end approach to running your workspace at peak efficiency — from staffing to compliance.</p>
-      </div>
-
-      <div class="mgmt-grid">
-        <div class="mgmt-card r">
-          <div class="mgmt-num">01</div>
-          <h4>Organisational Structure</h4>
-          <p>Clear reporting lines and departmental roles for optimal productivity and accountability.</p>
-        </div>
-        <div class="mgmt-card r d1">
-          <div class="mgmt-num">02</div>
-          <h4>Communications</h4>
-          <p>Streamlined frameworks keeping your teams aligned, informed and responsive at all times.</p>
-        </div>
-        <div class="mgmt-card r d2">
-          <div class="mgmt-num">03</div>
-          <h4>Procurement Management</h4>
-          <p>Strategic sourcing and vendor negotiation to reduce costs while improving reliability.</p>
-        </div>
-        <div class="mgmt-card r">
-          <div class="mgmt-num">04</div>
-          <h4>HR &amp; Staffing</h4>
-          <p>End-to-end HR management including hiring, training, performance reviews and payroll.</p>
-        </div>
-        <div class="mgmt-card r d1">
-          <div class="mgmt-num">05</div>
-          <h4>Maintenance Planning</h4>
-          <p>Preventive and reactive maintenance scheduling to keep your assets in optimal condition.</p>
-        </div>
-        <div class="mgmt-card r d2">
-          <div class="mgmt-num">06</div>
-          <h4>Compliance &amp; Reporting</h4>
-          <p>Regulatory compliance monitoring with dashboards for full operational visibility.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── TESTIMONIALS ───────────── -->
-  <section class="section section-white" id="testimonials">
-    <div class="wrap">
-      <div class="sec-head-row r">
-        <div>
-          <span class="sec-eyebrow">Client Reviews</span>
-          <h2 class="sec-title">What Our Clients Say</h2>
-        </div>
-        <p class="sec-desc">Trusted by hundreds of businesses and homeowners across Pakistan for reliability and quality.</p>
-      </div>
-
-      <div class="t-grid">
-        <div class="t-card r">
-          <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-          <blockquote>"Faisal Abbas transformed how our corporate office looks and operates. Their team is always on time, professional and thorough. Highly recommended to every business."</blockquote>
-          <div class="t-author">
-            <div class="t-avatar">AK</div>
-            <div class="t-info">
-              <div class="t-name">Ahmed Khan</div>
-              <div class="t-role">CEO, TechPak Solutions</div>
-            </div>
-          </div>
-        </div>
-        <div class="t-card r d1">
-          <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-          <blockquote>"We have been working with them for 3 years. Their office management service keeps everything running smoothly — from procurement to staffing. Absolutely reliable."</blockquote>
-          <div class="t-author">
-            <div class="t-avatar">SA</div>
-            <div class="t-info">
-              <div class="t-name">Sara Aslam</div>
-              <div class="t-role">Operations Director, MediCorp</div>
-            </div>
-          </div>
-        </div>
-        <div class="t-card r d2">
-          <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-          <blockquote>"Best facility management company in Lahore. Teams are trained, uniformed and always exceed expectations. Our guests always compliment the cleanliness and service."</blockquote>
-          <div class="t-author">
-            <div class="t-avatar">MR</div>
-            <div class="t-info">
-              <div class="t-name">Muhammad Raza</div>
-              <div class="t-role">Manager, Pearl Continental</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── CTA ───────────── -->
-  <section class="cta-section" id="contact">
-    <div class="wrap">
-      <div class="cta-inner">
-        <h2>Ready to Elevate<br /><em>Your Workspace?</em></h2>
-        <p>Get a personalised quote within 24 hours. No commitment — just honest, professional service across Pakistan.</p>
-        <div class="cta-buttons">
-          <a href="tel:+923278142883" class="btn-cta-white">📞 Call Now</a>
-          <a href="contact.html" class="btn-cta-outline">✉️ Send a Message</a>
-        </div>
-        <div class="cta-info">
-          <div class="cta-info-pill">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Lahore, Pakistan
-          </div>
-          <div class="cta-info-pill">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Sat, 9am–7pm
-          </div>
-          <div class="cta-info-pill">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-            +92 327 8142883
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── FOOTER ───────────── -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">Faisal <em>Abbas</em></div>
-          <p>Pakistan's leading office and facility management company delivering excellence across residential, commercial and industrial sectors since 2010.</p>
-          <div class="footer-socials">
-            <a href="#" class="f-soc">fb</a>
-            <a href="#" class="f-soc">ig</a>
-            <a href="#" class="f-soc">yt</a>
-            <a href="#" class="f-soc">li</a>
-          </div>
-        </div>
-        <div class="f-col">
-          <h5>Services</h5>
-          <ul>
-            <li><a href="#services">Cleaning Services</a></li>
-            <li><a href="#services">Parking Management</a></li>
-            <li><a href="#services">Civil Works</a></li>
-            <li><a href="#services">Security</a></li>
-            <li><a href="#services">Landscaping</a></li>
-            <li><a href="#office">Office Management</a></li>
-          </ul>
-        </div>
-        <div class="f-col">
-          <h5>Company</h5>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+          <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="#office">Management</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="f-col">
-          <h5>Contact</h5>
-          <div class="footer-contact-item">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Lahore, Pakistan</span>
+
+        <div class="nav-right">
+          <span class="nav-tel">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"
+              />
+            </svg>
+            +92 327 8142883
+          </span>
+          <a href="#contact" class="btn-nav">Get a Quote</a>
+          <button class="hamburger" id="ham" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mob-nav" id="mobNav">
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#office">Office Management</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="#contact" class="mob-cta">Get a Free Quote →</a>
+    </div>
+
+    <!-- ───────────── HERO ───────────── -->
+    <section class="hero">
+      <div class="wrap hero-wrap">
+        <!-- LEFT -->
+        <div class="hero-left">
+          <div class="hero-eyebrow">
+            <div class="eyebrow-dot">
+              <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span>Pakistan's #1 Office Working Solution</span>
           </div>
-          <div class="footer-contact-item">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-            <a href="tel:+923278142883">+92 327 8142883</a>
+
+          <h1>
+            <span class="line-block">Complete</span>
+            <span class="line-block accent">Workspace</span>
+            <span class="line-block">Management</span>
+          </h1>
+
+          <p class="hero-sub">
+            Professional cleaning, facility management and office services for
+            residential, commercial and industrial clients across Pakistan —
+            since 2010.
+          </p>
+
+          <div class="hero-sectors">
+            <span class="sector">🏠 Residential</span>
+            <span class="sector">🏢 Commercial</span>
+            <span class="sector">🏭 Industrial</span>
           </div>
-          <div class="footer-contact-item">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:info@faisalabbas.pk">info@faisalabbas.pk</a>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              Get Free Quote
+              <svg viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+            <a href="#services" class="btn-secondary">View Services</a>
           </div>
-          <div class="footer-contact-item">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Sat, 9am–7pm</span>
+
+          <div class="hero-stats">
+            <div class="hs">
+              <div class="hs-num">15<em>+</em></div>
+              <div class="hs-lbl">Years Active</div>
+            </div>
+            <div class="hs">
+              <div class="hs-num">500<em>+</em></div>
+              <div class="hs-lbl">Projects Done</div>
+            </div>
+            <div class="hs">
+              <div class="hs-num">200<em>+</em></div>
+              <div class="hs-lbl">Clients</div>
+            </div>
+            <div class="hs">
+              <div class="hs-num">98<em>%</em></div>
+              <div class="hs-lbl">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-title">Our Core Services</div>
+            <div class="svc-row">
+              <div class="svc-ico ico-blue">🧹</div>
+              <div class="svc-info">
+                <h4>Cleaning &amp; Janitorial</h4>
+                <p>Deep cleaning for all sectors</p>
+              </div>
+            </div>
+            <div class="svc-row">
+              <div class="svc-ico ico-green">🔒</div>
+              <div class="svc-info">
+                <h4>Security Services</h4>
+                <p>24/7 verified guard deployment</p>
+              </div>
+            </div>
+            <div class="svc-row">
+              <div class="svc-ico ico-amber">🅿️</div>
+              <div class="svc-info">
+                <h4>Parking Management</h4>
+                <p>Professional valet &amp; traffic flow</p>
+              </div>
+            </div>
+            <div class="svc-row">
+              <div class="svc-ico ico-teal">🏗️</div>
+              <div class="svc-info">
+                <h4>Civil Works</h4>
+                <p>Renovation &amp; maintenance</p>
+              </div>
+            </div>
+            <div class="svc-row">
+              <div class="svc-ico ico-pink">🌿</div>
+              <div class="svc-info">
+                <h4>Landscaping</h4>
+                <p>Garden design &amp; maintenance</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-icon">🏆</div>
+            <div class="trust-text">
+              <strong>Trusted by 200+ Businesses</strong>
+              <span>From Lahore to all major cities in Pakistan</span>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="footer-bottom">
-        <p>© 2026 Faisal Abbas. All rights reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a></p>
+    <!-- ───────────── STATS BAND ───────────── -->
+    <div class="stats-band">
+      <div class="wrap">
+        <div class="stats-band-inner">
+          <div class="sb-item">
+            <div class="sb-val">500<em>+</em></div>
+            <div class="sb-lbl">Projects Completed</div>
+          </div>
+          <div class="sb-item">
+            <div class="sb-val">200<em>+</em></div>
+            <div class="sb-lbl">Happy Clients</div>
+          </div>
+          <div class="sb-item">
+            <div class="sb-val">15<em>yrs</em></div>
+            <div class="sb-lbl">Industry Experience</div>
+          </div>
+          <div class="sb-item">
+            <div class="sb-val">98<em>%</em></div>
+            <div class="sb-lbl">Client Satisfaction</div>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <script src="main.js"></script>
-</body>
+    <!-- ───────────── SERVICES ───────────── -->
+    <section class="section section-alt" id="services">
+      <div class="wrap">
+        <div class="sec-head-row r">
+          <div>
+            <span class="sec-eyebrow">What We Offer</span>
+            <h2 class="sec-title">Our Core Services</h2>
+          </div>
+          <p class="sec-desc">
+            From routine cleaning to full facility management — everything your
+            workspace needs, under one roof.
+          </p>
+        </div>
+
+        <div class="srv-grid">
+          <div class="srv-card r">
+            <div class="srv-top">
+              <div class="srv-icon">🧹</div>
+              <div class="srv-arrow">↗</div>
+            </div>
+            <h3>Cleaning Services</h3>
+            <p>
+              Deep cleaning for offices, malls, hospitals and homes using
+              certified eco-friendly products and trained staff.
+            </p>
+            <span class="srv-tag">Residential · Commercial</span>
+          </div>
+          <div class="srv-card r d1">
+            <div class="srv-top">
+              <div class="srv-icon">🅿️</div>
+              <div class="srv-arrow">↗</div>
+            </div>
+            <h3>Parking Management</h3>
+            <p>
+              Trained valet and parking staff ensuring smooth vehicle flow,
+              safety and a professional experience for visitors.
+            </p>
+            <span class="srv-tag">Commercial · Industrial</span>
+          </div>
+          <div class="srv-card r d2">
+            <div class="srv-top">
+              <div class="srv-icon">🏗️</div>
+              <div class="srv-arrow">↗</div>
+            </div>
+            <h3>Civil Works</h3>
+            <p>
+              Renovation, repair and maintenance for commercial and industrial
+              premises by qualified civil engineering teams.
+            </p>
+            <span class="srv-tag">Industrial · Commercial</span>
+          </div>
+          <div class="srv-card r">
+            <div class="srv-top">
+              <div class="srv-icon">📋</div>
+              <div class="srv-arrow">↗</div>
+            </div>
+            <h3>Office Management</h3>
+            <p>
+              Complete workspace management including HR, procurement,
+              communications and compliance across all departments.
+            </p>
+            <span class="srv-tag">All Sectors</span>
+          </div>
+          <div class="srv-card r d1">
+            <div class="srv-top">
+              <div class="srv-icon">🔒</div>
+              <div class="srv-arrow">↗</div>
+            </div>
+            <h3>Security Services</h3>
+            <p>
+              Background-verified guards and CCTV management for round-the-clock
+              protection of your premises and assets.
+            </p>
+            <span class="srv-tag">Residential · Commercial</span>
+          </div>
+          <div class="srv-card r d2">
+            <div class="srv-top">
+              <div class="srv-icon">🌿</div>
+              <div class="srv-arrow">↗</div>
+            </div>
+            <h3>Landscaping</h3>
+            <p>
+              Garden design, planting and maintenance to keep your outdoor
+              spaces pristine, green and professional.
+            </p>
+            <span class="srv-tag">Residential · Corporate</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── PROJECTS ───────────── -->
+    <section class="section section-white" id="projects">
+      <div class="wrap">
+        <div class="sec-head-center r">
+          <span class="sec-eyebrow">Our Portfolio</span>
+          <h2 class="sec-title">Featured Projects</h2>
+          <p class="sec-desc">
+            A selection of our most impactful work across Pakistan's commercial,
+            industrial and residential sectors.
+          </p>
+        </div>
+
+        <div class="proj-grid">
+          <div class="proj-card r">
+            <div class="proj-thumb">🏢</div>
+            <div class="proj-body">
+              <div class="proj-cat">Commercial · Lahore</div>
+              <h3>DHA Corporate Tower — Full Facility Takeover</h3>
+              <p>
+                End-to-end facility management for a 22-floor commercial tower
+                including cleaning, security, parking and civil maintenance for
+                80+ tenant businesses.
+              </p>
+              <div class="proj-meta">
+                <span class="proj-year">2024</span>
+                <span class="proj-tag">Ongoing Contract</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card r d1">
+            <div class="proj-thumb">🏥</div>
+            <div class="proj-body">
+              <div class="proj-cat">Healthcare · Islamabad</div>
+              <h3>Shifa International Hospital — Janitorial Programme</h3>
+              <p>
+                ISO-compliant daily janitorial programme across 300+ rooms and
+                common areas with specialised bio-safe cleaning protocols and
+                daily compliance reporting.
+              </p>
+              <div class="proj-meta">
+                <span class="proj-year">2023</span>
+                <span class="proj-tag">3-Year Contract</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card r d2">
+            <div class="proj-thumb">🏭</div>
+            <div class="proj-body">
+              <div class="proj-cat">Industrial · Faisalabad</div>
+              <h3>Nishat Textile Mills — Industrial Grounds Management</h3>
+              <p>
+                Complete grounds and landscaping management for a 40-acre
+                industrial facility including weekly maintenance, seasonal
+                planting and irrigation systems.
+              </p>
+              <div class="proj-meta">
+                <span class="proj-year">2023</span>
+                <span class="proj-tag">Annual Contract</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card r">
+            <div class="proj-thumb">🏨</div>
+            <div class="proj-body">
+              <div class="proj-cat">Hospitality · Lahore</div>
+              <h3>Pearl Continental Hotel — Housekeeping &amp; Parking</h3>
+              <p>
+                Managed valet parking and deep housekeeping services for
+                Pakistan's premier hotel, training and deploying a team of 45
+                uniformed staff.
+              </p>
+              <div class="proj-meta">
+                <span class="proj-year">2022</span>
+                <span class="proj-tag">Completed</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card r d1">
+            <div class="proj-thumb">🏫</div>
+            <div class="proj-body">
+              <div class="proj-cat">Education · Lahore</div>
+              <h3>LUMS University — Campus Facility Management</h3>
+              <p>
+                Full-campus facility management encompassing cleaning, civil
+                works and security for one of Pakistan's top universities across
+                a 100-acre site.
+              </p>
+              <div class="proj-meta">
+                <span class="proj-year">2022</span>
+                <span class="proj-tag">Completed</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card r d2">
+            <div class="proj-thumb">🏬</div>
+            <div class="proj-body">
+              <div class="proj-cat">Retail · Lahore</div>
+              <h3>Packages Mall — Retail Cleaning &amp; Security</h3>
+              <p>
+                Daily retail cleaning, waste management and uniformed security
+                services for one of Lahore's largest shopping centres with 200+
+                retail outlets.
+              </p>
+              <div class="proj-meta">
+                <span class="proj-year">2021</span>
+                <span class="proj-tag">Completed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── OFFICE MANAGEMENT ───────────── -->
+    <section class="section section-alt" id="office">
+      <div class="wrap">
+        <div class="sec-head-center r">
+          <span class="sec-eyebrow">Facility Management</span>
+          <h2 class="sec-title">Office Management Services</h2>
+          <p class="sec-desc">
+            A structured, end-to-end approach to running your workspace at peak
+            efficiency — from staffing to compliance.
+          </p>
+        </div>
+
+        <div class="mgmt-grid">
+          <div class="mgmt-card r">
+            <div class="mgmt-num">01</div>
+            <h4>Organisational Structure</h4>
+            <p>
+              Clear reporting lines and departmental roles for optimal
+              productivity and accountability.
+            </p>
+          </div>
+          <div class="mgmt-card r d1">
+            <div class="mgmt-num">02</div>
+            <h4>Communications</h4>
+            <p>
+              Streamlined frameworks keeping your teams aligned, informed and
+              responsive at all times.
+            </p>
+          </div>
+          <div class="mgmt-card r d2">
+            <div class="mgmt-num">03</div>
+            <h4>Procurement Management</h4>
+            <p>
+              Strategic sourcing and vendor negotiation to reduce costs while
+              improving reliability.
+            </p>
+          </div>
+          <div class="mgmt-card r">
+            <div class="mgmt-num">04</div>
+            <h4>HR &amp; Staffing</h4>
+            <p>
+              End-to-end HR management including hiring, training, performance
+              reviews and payroll.
+            </p>
+          </div>
+          <div class="mgmt-card r d1">
+            <div class="mgmt-num">05</div>
+            <h4>Maintenance Planning</h4>
+            <p>
+              Preventive and reactive maintenance scheduling to keep your assets
+              in optimal condition.
+            </p>
+          </div>
+          <div class="mgmt-card r d2">
+            <div class="mgmt-num">06</div>
+            <h4>Compliance &amp; Reporting</h4>
+            <p>
+              Regulatory compliance monitoring with dashboards for full
+              operational visibility.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── TESTIMONIALS ───────────── -->
+    <section class="section section-white" id="testimonials">
+      <div class="wrap">
+        <div class="sec-head-row r">
+          <div>
+            <span class="sec-eyebrow">Client Reviews</span>
+            <h2 class="sec-title">What Our Clients Say</h2>
+          </div>
+          <p class="sec-desc">
+            Trusted by hundreds of businesses and homeowners across Pakistan for
+            reliability and quality.
+          </p>
+        </div>
+
+        <div class="t-grid">
+          <div class="t-card r">
+            <div class="t-stars">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <blockquote>
+              "Faisal Abbas transformed how our corporate office looks and
+              operates. Their team is always on time, professional and thorough.
+              Highly recommended to every business."
+            </blockquote>
+            <div class="t-author">
+              <div class="t-avatar">AK</div>
+              <div class="t-info">
+                <div class="t-name">Ahmed Khan</div>
+                <div class="t-role">CEO, TechPak Solutions</div>
+              </div>
+            </div>
+          </div>
+          <div class="t-card r d1">
+            <div class="t-stars">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <blockquote>
+              "We have been working with them for 3 years. Their office
+              management service keeps everything running smoothly — from
+              procurement to staffing. Absolutely reliable."
+            </blockquote>
+            <div class="t-author">
+              <div class="t-avatar">SA</div>
+              <div class="t-info">
+                <div class="t-name">Sara Aslam</div>
+                <div class="t-role">Operations Director, MediCorp</div>
+              </div>
+            </div>
+          </div>
+          <div class="t-card r d2">
+            <div class="t-stars">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <blockquote>
+              "Best facility management company in Lahore. Teams are trained,
+              uniformed and always exceed expectations. Our guests always
+              compliment the cleanliness and service."
+            </blockquote>
+            <div class="t-author">
+              <div class="t-avatar">MR</div>
+              <div class="t-info">
+                <div class="t-name">Muhammad Raza</div>
+                <div class="t-role">Manager, Pearl Continental</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── CTA ───────────── -->
+    <section class="cta-section" id="contact">
+      <div class="wrap">
+        <div class="cta-inner">
+          <h2>Ready to Elevate<br /><em>Your Workspace?</em></h2>
+          <p>
+            Get a personalised quote within 24 hours. No commitment — just
+            honest, professional service across Pakistan.
+          </p>
+          <div class="cta-buttons">
+            <a href="tel:+923278142883" class="btn-cta-white">📞 Call Now</a>
+            <a href="contact.html" class="btn-cta-outline">✉️ Send a Message</a>
+          </div>
+          <div class="cta-info">
+            <div class="cta-info-pill">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Lahore, Pakistan
+            </div>
+            <div class="cta-info-pill">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              Mon–Sat, 9am–7pm
+            </div>
+            <div class="cta-info-pill">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"
+                />
+              </svg>
+              +92 327 8142883
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── FOOTER ───────────── -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">Faisal <em>Abbas</em></div>
+            <p>
+              Pakistan's leading office and facility management company
+              delivering excellence across residential, commercial and
+              industrial sectors since 2010.
+            </p>
+            <div class="footer-socials">
+              <a href="#" class="f-soc">fb</a>
+              <a href="#" class="f-soc">ig</a>
+              <a href="#" class="f-soc">yt</a>
+              <a href="#" class="f-soc">li</a>
+            </div>
+          </div>
+          <div class="f-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="#services">Cleaning Services</a></li>
+              <li><a href="#services">Parking Management</a></li>
+              <li><a href="#services">Civil Works</a></li>
+              <li><a href="#services">Security</a></li>
+              <li><a href="#services">Landscaping</a></li>
+              <li><a href="#office">Office Management</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h5>Contact</h5>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Lahore, Pakistan</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"
+                />
+              </svg>
+              <a href="tel:+923278142883">+92 327 8142883</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:info@faisalabbas.pk">info@faisalabbas.pk</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>Mon–Sat, 9am–7pm</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Faisal Abbas. All rights reserved.</p>
+          <p>
+            <a href="privacy.html">Privacy Policy</a> ·
+            <a href="terms.html">Terms &amp; Conditions</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>
